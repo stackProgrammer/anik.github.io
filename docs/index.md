@@ -1,37 +1,43 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+            img{
+                width: 200px;
+                height: 200px;
+            }
 
-You can use the [editor on GitHub](https://github.com/stackProgrammer/anik.github.io/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+            div{
+                width: 250px;
+                height: 250px;
+                border: 1px solid #555;
+            }
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+    </style>
 
-### Markdown
+    <script>
+         function allowDrop(e){
+            e.preventDefault();
+         }
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+         function drag(e){
+            e.dataTransfer.setData("text",e.target.id);
+         }
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/stackProgrammer/anik.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+         function drop(e){
+            e.preventDefault();
+            var data= e.dataTransfer.getData("text");
+            e.target.appendChild(document.querySelector("#"+data));
+         }
+    </script>
+    <title>Drag And Drop</title> 
+</head>
+<body>
+    <div id="box" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <br>
+    <img id="img" src="https://yt3.ggpht.com/3kmvsf3NNYy4XLy3hKc2ZVF8O-XkSaahtwUr3KW-YzJKMJsy-g2HePIayrh-JnXWbilYQ6n_=s900-c-k-c0x00ffffff-no-rj" alt="" draggable="true" ondragstart="drag(event)">
+</body>
+</html>
